@@ -1,0 +1,1 @@
+export { default } from 'ui-library/components/r-pagination/component';
