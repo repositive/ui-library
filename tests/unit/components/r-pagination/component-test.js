@@ -5,12 +5,12 @@ import Ember from 'ember';
 
 const { setProperties } = Ember;
 
-describe('Unit | Component | pagination bar', function() {
-  setupComponentTest('rui/r-pagination', {
+describe('Unit | Component | r-pagination', function() {
+  setupComponentTest('r-pagination', {
     unit: true,
     needs: [
       'component:fa-icon',
-      'component:rui/r-pagination/button'
+      'component:r-pagination/button'
     ]
   });
 
