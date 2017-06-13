@@ -2,5 +2,9 @@
 'use strict';
 
 module.exports = {
-  name: 'ui-library'
+  name: 'ui-library',
+
+  included: function() {
+    this._super.included.apply(this, arguments);
+  }
 };
