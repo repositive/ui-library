@@ -1,1 +1,3 @@
-export { default } from 'ui-library/components/r-pagination/component';
+import RPagination from 'ui-library/components/r-pagination/component';
+
+export default RPagination;

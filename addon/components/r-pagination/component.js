@@ -1,8 +1,10 @@
 import Ember from 'ember';
+import layout from 'ui-library/components/r-pagination/template';
 
 const { Component, get, computed } = Ember;
 
 export default Component.extend({
+  layout,
   classNames: ['flex', 'justify-center'],
 
   pageNumbers: [1, 2, 3, 4, 5],
