@@ -1,13 +1,11 @@
 /* ==========================================================================
-   UI LIBRARY IMPORT SHEET
+   TAB LIST - COMPONENT STYLES
    ========================================================================== */
 
-/*
-  Docs:
-    To import:
-      `@import 'ui-library'`
+.r-tab-list > li {
+  border-left: $border-width $border-color solid;
+}
 
-*/
-
-@import "pagination";
-@import "tab-list";
+.r-tab-list li:first-child {
+  border-left: none;
+}
