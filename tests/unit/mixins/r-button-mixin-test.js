@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
 import Ember from 'ember';
 import sinon from 'sinon';
-import RButtonMixinMixin from 'ui-library/addon/mixins/r-button-mixin';
+import RButtonMixinMixin from 'ui-library/mixins/r-button-mixin';
 
 const { get, set } = Ember;
 
