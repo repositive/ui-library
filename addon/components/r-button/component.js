@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import ButtonMixin from 'repositive/mixins/rui/r-button-mixin';
+import ButtonMixin from 'ui-library/mixins/r-button-mixin';
 import layout from 'ui-library/components/r-button/template';
 
 const { Component, get } = Ember;
