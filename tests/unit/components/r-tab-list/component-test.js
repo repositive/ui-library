@@ -5,12 +5,9 @@ import Ember from 'ember';
 
 const { get } = Ember;
 
-describe('Unit | Component | RUI / r-tab-list', function() {
-  setupComponentTest('rui/r-tab-list', {
-    needs: [
-      'validator:presence',
-      'validator:format'
-    ],
+describe('Unit | Component | r-tab-list', function() {
+  setupComponentTest('r-tab-list', {
+    needs: [],
     unit: true
   });
 
