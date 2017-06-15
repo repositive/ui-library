@@ -35,7 +35,7 @@ All buttons are extended with the `r-button-mixin` and therefore share a base se
 
 Base properties of each button component:
 
-- **Variant** - Specifies the style of the button. Options include:
+- `variant` - Specifies the style of the button. Options include:
 
   - `primary`
   - `secondary`
@@ -47,7 +47,7 @@ Base properties of each button component:
   ```
 
 
-- **Size** - Specifies the size of the button. Options include:
+- `size` - Specifies the size of the button. Options include:
 
   - `big`
   - `small`
@@ -64,6 +64,20 @@ By default a button has:
 
 
 #### r-async-button
+Async-buttons are similar to regular `r-button`s but can take a few extra options:
+
+- `action` - The name of the action which will be called on click.
+
+- `default` - Default text of the button.
+
+- `pending` - Text displayed when the promise is running i.e. not yet fulfilled or rejected.
+
+- `disableWhen` - Boolean value which allows for the button be be disabled when in a state other than `pending`.
+
+- `reset` - Boolean value which tells the button whether or not to reset to default state once the promise has been fulfilled or rejected.
+
+A typical `async-button` may look like:
+
 
 ```
 {{r-async-button
@@ -76,6 +90,7 @@ By default a button has:
     variant="primary"
 }}
 ```
+
 #### r-button
 #### r-link-button
 
