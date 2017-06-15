@@ -61,20 +61,54 @@ By default a button has:
   - Size: big
   - Variant: secondary
 
+#### r-button
+As well as the `variant` and `size` options detailed above, the `r-button` can also take the following options:
+
+- `label` - The button text. E.g.
+```
+label = "Cancel"
+```
+
+- `clickHandler` - The name of the action the button will call on click. E.g.
+```
+clickHandler = (action 'cancel')
+```
+
+- `disabled` - Boolean value to specify whether the button is disabled. E.g.
+```
+disabled = (not validations.valid)
+```
+
 
 
 #### r-async-button
 Async-buttons are similar to regular `r-button`s but can take a few extra options:
 
-- `action` - The name of the action which will be called on click.
+- `action` - The name of the action which will be called on click. E.g.
+```
+action = (action 'signup')
+```
 
-- `default` - Default text of the button.
+- `default` - Default text of the button. E.g.
+```
+default = "Signup"
+```
 
-- `pending` - Text displayed when the promise is running i.e. not yet fulfilled or rejected.
+- `pending` - Text displayed when the promise is running i.e. not yet fulfilled or rejected. E.g.
+```
+pending = "Signing up..."
+```
 
 - `disableWhen` - Boolean value which allows for the button be be disabled when in a state other than `pending`.
+```
+disableWhen = isInvalid
+```
 
-- `reset` - Boolean value which tells the button whether or not to reset to default state once the promise has been fulfilled or rejected.
+- `reset` - Boolean value which tells the button whether or not to reset to default state once the promise has been fulfilled or rejected. E.g.
+```
+reset = true
+```
+
 
 A typical `async-button` may look like:
 
@@ -91,7 +125,6 @@ A typical `async-button` may look like:
 }}
 ```
 
-#### r-button
 #### r-link-button
 
 ## Contributing
