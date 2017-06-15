@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { getProperty } from 'ui-library/utils/set-options';
 
 const { Mixin, get, set } = Ember;
 
@@ -18,7 +19,7 @@ export default Mixin.create({
     'small:r-btn-small'
   ],
 
-  options: {
+  attributes: {
     variant: ['primary', 'secondary', 'cancel'],
     size: ['small', 'big']
   },
@@ -31,29 +32,17 @@ export default Mixin.create({
   init() {
     this._super(...arguments);
 
-    // set option flags used for className bindings
-    Object.keys(get(this, 'options')).forEach(key => this._setOptionFlag(key));
-  },
-
-  /**
-   * @desc sets flag based of option value passed during component invocation
-   * @param {String} flagType
-   * @private
-   */
-  _setOptionFlag(flagType) {
-    const flagName = get(this, flagType);
-
-    set(this, (this._isValidFlagName(flagType, flagName) ? flagName : get(this, `defaults.${flagType}`)), true);
-  },
-
-  /**
-   * @desc checks if given flag name is valid
-   * @param {String} flagType
-   * @param {String} flagName
-   * @returns {Boolean}
-   * @private
-   */
-  _isValidFlagName(flagType, flagName) {
-    return get(this, `options.${flagType}`).indexOf(flagName) !== -1;
+    // sets appropriate properties to true for classNameBindings
+    const attributes = get(this, 'attributes');
+    const defaults = get(this, 'defaults');
+    
+    Object.keys(attributes).forEach(attribute => {
+      const property = getProperty(
+        attributes[attribute],
+        defaults[attribute],
+        get(this, attribute)
+      )
+      set(this, property, true)
+    });
   }
 });
