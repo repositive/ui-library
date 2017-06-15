@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
 import Ember from 'ember';
 import sinon from 'sinon';
-import RButtonMixinMixin from 'ui-library/mixins/r-button-mixin';
+import RButtonMixin from 'ui-library/mixins/r-button-mixin';
 
 const { get, set } = Ember;
 
@@ -10,7 +10,7 @@ describe('Unit | Mixin | r-button-mixin', function() {
   let subject;
 
   beforeEach(function () {
-    const RButtonMixinObject = Ember.Object.extend(RButtonMixinMixin, {
+    const RButtonMixinObject = Ember.Object.extend(RButtonMixin, {
       _super: sinon.spy()
     });
 
