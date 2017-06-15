@@ -6,8 +6,8 @@ import Ember from 'ember';
 
 const { get, set } = Ember;
 
-describe('Unit | Component | RUI / r-avatar', function() {
-  setupComponentTest('rui/r-avatar', {
+describe('Unit | Component | r-avatar', function() {
+  setupComponentTest('r-avatar', {
     unit: true
   });
 
