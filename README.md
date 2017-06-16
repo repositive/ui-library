@@ -2,11 +2,15 @@
 
 This README outlines the details of collaborating on this Ember addon.
 
+## Prerequisites
+
+* [Yarn](https://yarnpkg.com/en/docs/install)
+
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd ui-library`
-* `npm install`
+* `yarn`
 
 ## Running
 
