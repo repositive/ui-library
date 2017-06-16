@@ -17,10 +17,9 @@ This will put the latest version of the library into your project's `package.jso
 
 #### Import SCSS
 
-Add the line `@import 'ui-library';` to your `app.scss` file. This SCSS extends the [Liz-Skin](https://github.com/repositive/liz-skin) CSS library with custom component styles.
+Add the line `@import 'ui-library';` to the end of your `app.scss` file. This SCSS extends the [Liz-Skin](https://github.com/repositive/liz-skin) CSS library with custom component styles.
 
 ## Usage
-
 
 ### Buttons
 
@@ -59,7 +58,7 @@ Base properties of each button component:
   ```
 
 By default a button has:
-  - Size: big
+  - Size: small
   - Variant: secondary
 
 #### r-button
@@ -93,7 +92,7 @@ Typical usage of `r-button` may look like:
 ```
 
 #### r-async-button
-Async-buttons are similar to regular `r-button`s but can take a few extra options:
+Build on Dockyards [async-buttons](https://github.com/DockYard/ember-async-button). Async-buttons are similar to regular `r-button`s but can take a few extra options:
 
 - `action` - The name of the action which will be called on click. E.g.
 ```
@@ -119,7 +118,6 @@ disableWhen = isInvalid
 ```
 reset = true
 ```
-
 
 Typical usage of `r-async-button` may look like:
 
@@ -200,6 +198,44 @@ Typical usage of `r-pagination` may look like:
     goToPage=(action 'goToPage')
 }}
 ```
+
+### Avatar
+
+`r-avatar` takes the following parameters:
+
+
+* `src` -  The url of the avatar image. E.g.
+
+
+- `size` - Specifies the size of the avatar. Options include:
+
+  - `small`
+  - `medium` (default)
+  - `large`
+  - `x-large`
+
+  E.g.
+  ```
+  {{r-avatar size='large'}}
+  ```
+
+- `size` - Specifies the url of the avatar image.
+  ```
+  {{r-avatar src='https://cdn.catimages.com/massive-cat.jpg'}}
+  ```
+
+Typical usage of the `r-avatar` may look like:
+
+```
+{{r-avatar
+    src=user.profile.avatar
+    size="large"
+}}
+```
+
+
+
+
 
 ## Contributing
 
