@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('buttons');
   this.route('avatars');
   this.route('pagination');
+  this.route('tabs');
 });
 
 export default Router;
