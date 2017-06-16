@@ -1,21 +1,23 @@
-# UI Library
+# Repositive UI Library
 
-A set of ember components to allow frontend applications to be composed quickly and consistently.
+A set of ember components to allow frontend applications to be composed quickly and consistently. Developed by [Repositive.io](https://repositive.io).
 
 ## Prerequisites
 
-Currently this library requires the Repositive CSS library [Liz-Skin](https://github.com/repositive/liz-skin).
+This library requires the Repositive CSS library,  [Liz-Skin](https://github.com/repositive/liz-skin). Please ensure you have this setup before continuing.
 
-Please ensure you have this setup before continuing.
+## Getting started
 
-## Installation
+#### Install addon
 
 ```
 $ ember install @repositive/ui-library
 ```
-
 This will put the latest version of the library into your project's `package.json`.
 
+#### Import SCSS
+
+Add the line `@import 'ui-library';` to your `app.scss` file. This SCSS extends the [Liz-Skin](https://github.com/repositive/liz-skin) CSS library with custom component styles.
 
 ## Usage
 
