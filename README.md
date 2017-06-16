@@ -286,11 +286,15 @@ Typical usage of the tab component:
 
 ## Contributing
 
-### Setup
+### Prerquisites
+
+* [Yarn](https://yarnpkg.com/en/docs/install)
+
+### Installation
 
 * `git clone <repository-url>` this repository
 * `cd ui-library`
-* `npm install`
+* `yarn`
 
 ### Running
 

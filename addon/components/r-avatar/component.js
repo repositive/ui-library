@@ -18,16 +18,12 @@ export default Component.extend({
     'x-large:icon-x-large'
   ],
 
-  options: {
-    size: ['small', 'medium', 'large', 'x-large']
-  },
-
-  defaults: {
-    size: 'medium'
-  },
-
   init() {
     this._super(...arguments);
+    this.options = {
+      size: ['small', 'medium', 'large', 'x-large']
+    };
+    this.defaults = { size: 'medium' };
 
     // TODO: this logic is also used for buttons, create a generalised logic helper.
     // set option flags used for className bindings
