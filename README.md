@@ -78,7 +78,7 @@ clickHandler = (action 'cancel')
 disabled = (not validations.valid)
 ```
 
-A typical `r-button` may look like:
+Typical usage of `r-button` may look like:
 ```
 {{r-button
     clickHandler=(action "reset")
@@ -119,7 +119,7 @@ reset = true
 ```
 
 
-A typical `r-async-button` may look like:
+Typical usage of `r-async-button` may look like:
 
 ```
 {{r-async-button
@@ -145,7 +145,7 @@ href= "https://blog.repositive.io"
 target='_blank'
 ```
 
-A typical `r-link-button` may look like:
+Typical usage of `r-link-button` may look like:
 
 ```
 {{r-link-button
@@ -155,6 +155,47 @@ A typical `r-link-button` may look like:
     variant="primary"
     size="big"
     target="_blank"
+}}
+```
+
+### Pagination
+`r-pagination` takes the following parameters:
+
+- `totalPages` - The total number of response results / resultsPerPage. E.g.
+```
+totalPages=totalPages
+```
+
+- `currentPageNumber` - Number signifying which page the user is on. E.g.
+```
+currentPageNumber=currentPage
+```
+
+- `nextPage` - Action to be called when the 'Next' button is pressed. E.g.
+```
+nextPage=(action 'nextPage')
+```
+
+- `previousPage` - Action to be called when the 'Previous' button is pressed. E.g.
+```
+previousPage=(action 'previousPage')
+```
+
+- `goToPage` - Action to be called when a page number is pressed. E.g.
+```
+goToPage=(action 'goToPage')
+```
+
+
+Typical usage of `r-pagination` may look like:
+
+```
+{{r-pagination
+    totalPages=totalPages
+    currentPageNumber=page
+    nextPage=(action 'nextPage')
+    previousPage=(action 'previousPage')
+    goToPage=(action 'goToPage')
 }}
 ```
 
