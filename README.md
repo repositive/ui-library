@@ -19,7 +19,6 @@ This will put the latest version of the library into your project's `package.jso
 
 ## Usage
 
-You'll find a `README` file in each of the component directories in `/addon`. Please refer to the README of the component you'd like to use for usage instructions.
 
 ### Buttons
 
@@ -79,7 +78,17 @@ clickHandler = (action 'cancel')
 disabled = (not validations.valid)
 ```
 
+A typical `r-button` may look like:
+```
+{{r-button
+    clickHandler=(action "reset")
+    variant="secondary"
+    size="big"
+    disabled=isFormUnchanged
+    label="Reset"
+}}
 
+```
 
 #### r-async-button
 Async-buttons are similar to regular `r-button`s but can take a few extra options:
@@ -110,8 +119,7 @@ reset = true
 ```
 
 
-A typical `async-button` may look like:
-
+A typical `r-async-button` may look like:
 
 ```
 {{r-async-button
@@ -126,6 +134,29 @@ A typical `async-button` may look like:
 ```
 
 #### r-link-button
+`r-link-button`s are extended from `r-button` and have 2 extra arguments:
+
+- `href` - The link to open. E.g.
+```
+href= "https://blog.repositive.io"
+```
+- `target` - Where the linked document will open. E.g.
+```
+target='_blank'
+```
+
+A typical `r-link-button` may look like:
+
+```
+{{r-link-button
+    clickHandler=(action "trackExit")
+    href= model.url
+    label= "Access Data"
+    variant="primary"
+    size="big"
+    target="_blank"
+}}
+```
 
 ## Contributing
 
