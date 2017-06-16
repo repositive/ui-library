@@ -4,7 +4,7 @@ import { setupComponentTest } from 'ember-mocha';
 import sinon from 'sinon';
 import Ember from 'ember';
 
-const { get, set } = Ember;
+const { get, set, setProperties } = Ember;
 
 describe('Unit | Component | r-avatar', function() {
   setupComponentTest('r-avatar', {
@@ -66,7 +66,7 @@ describe('Unit | Component | r-avatar', function() {
       const flagName = 'large';
 
       it('should set given flagName', function () {
-        component.setProperties({
+        setProperties(component, {
           _isValidFlagName: sinon.stub().returns(true),
           [flagType]: flagName
         });
@@ -77,7 +77,7 @@ describe('Unit | Component | r-avatar', function() {
       });
 
       it('should set default flagName', function () {
-        component.setProperties({
+        setProperties(component, {
           _isValidFlagName: sinon.stub().returns(false),
           [flagType]: flagName
         });
