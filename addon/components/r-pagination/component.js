@@ -7,17 +7,20 @@ export default Component.extend({
   layout,
   classNames: ['flex', 'justify-center'],
 
-  pageNumbers: [1, 2, 3, 4, 5],
+  noPrevPage: computed.equal('currentPageNumber', 1),
 
   pages: computed('pageNumbers', 'currentPageNumber', function() {
     return this._updatePageNumberList(get(this, 'pageNumbers'), get(this, 'currentPageNumber'), get(this, 'totalPages'));
   }),
 
-  noPrevPage: computed.equal('currentPageNumber', 1),
-
   noNextPage: computed('currentPageNumber', 'totalPages', function() {
     return get(this, 'currentPageNumber') >= get(this, 'totalPages');
   }),
+
+  init() {
+    this._super(...arguments);
+    this.pageNumbers = [1, 2, 3, 4, 5];
+  },
 
   /**
    * @param {Array} pageNumbers
