@@ -203,10 +203,6 @@ Typical usage of `r-pagination` may look like:
 
 `r-avatar` takes the following parameters:
 
-
-* `src` -  The url of the avatar image. E.g.
-
-
 - `size` - Specifies the size of the avatar. Options include:
 
   - `small`
@@ -219,7 +215,7 @@ Typical usage of `r-pagination` may look like:
   {{r-avatar size='large'}}
   ```
 
-- `size` - Specifies the url of the avatar image.
+- `src` - Specifies the url of the avatar image.
   ```
   {{r-avatar src='https://cdn.catimages.com/massive-cat.jpg'}}
   ```
@@ -233,9 +229,60 @@ Typical usage of the `r-avatar` may look like:
 }}
 ```
 
+### Tabs
 
+Tabs consist of two sub-components:
 
+- `r-tab-list` - A block component in which you nest any number of `r-tab-list-item`s. This does not take any parameters.
+- `r-tab-list-item` - An individual tab component
 
+`r-tab-list-item` takes the following parameters:
+
+- `tabName` - Tab text or label to be displayed
+  E.g.
+  ```
+  {{r-tab-item tabName="Settings"}}
+  ```
+- `target` - The target route of the tab
+  E.g.
+  ```
+  {{r-tab-item target="settings"}}
+  ```
+- `query` - Query param of the target route
+  E.g.
+  ```
+  {{r-tab-item query="user"}}
+  ```
+- `icon` - The font-awesome icon to be displayed on the tab
+  E.g.
+  ```
+  {{r-tab-item icon="user"}}
+  ```
+- `iconPosition` - Whether to display the icon left of the `tabName` or right
+  E.g.
+  ```
+  {{r-tab-item iconPosition="left"}}
+  ```
+- `stats` - A number to be displayed on the tab e.g. Followers (*381*)
+  E.g.
+  ```
+  {{r-tab-item stats=user.followers.length}}
+  ```
+
+Typical usage of the tab component:
+
+```
+{{#r-tab-list}}
+  {{r-tab-list-item
+      tabName="Profile"
+      target="users.profile"
+  }}
+  {{r-tab-list-item
+      tabName="Account Settings"
+      target="users.settings"
+  }}
+{{/r-tab-list}}
+```
 
 ## Contributing
 
