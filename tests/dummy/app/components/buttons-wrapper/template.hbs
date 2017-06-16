@@ -1,0 +1,86 @@
+<h3 class="fc-secondary mb2">r-button</h3>
+<div class="mb2">
+  {{r-button label='Primary Small' size="small" variant="primary"}}
+  {{r-button label='Secondary Small' size="small" variant="secondary"}}
+  {{r-button label='Cancel Small' size="small" variant="cancel"}}
+  {{r-button label='Disabled Small' size="small" variant="primary" disabled=true}}
+</div>
+<div class="mb4">
+  {{r-button label='Primary Big' size="big" variant="primary"}}
+  {{r-button label='Secondary Big' size="big" variant="secondary"}}
+  {{r-button label='Cancel Big' size="big" variant="cancel"}}
+  {{r-button label='Disabled Big' size="big" variant="primary" disabled=true}}
+</div>
+
+
+<h3 class="fc-secondary mb2">r-async-button</h3>
+<div class="mb2">
+  {{r-async-button
+      action=(action 'save')
+      default="Async Primary Small"
+      pending="Testing..."
+      reset=true
+      size="small"
+      variant="primary"
+  }}
+  {{r-async-button
+      action=(action 'save')
+      default="Async Secondary Small"
+      pending="Testing..."
+      reset=true
+      size="small"
+      variant="secondary"
+  }}
+  {{r-async-button
+      action=(action 'save')
+      default="Async Cancel Small"
+      pending="Testing..."
+      reset=true
+      size="small"
+      variant="cancel"
+  }}
+</div>
+<div class="mb4">
+  {{r-async-button
+      action=(action 'save')
+      default="Aysnc Primary Big"
+      pending="Testing..."
+      reset=true
+      size="big"
+      variant="primary"
+  }}
+  {{r-async-button
+      action=(action 'save')
+      default="Aysnc Secondary Big"
+      pending="Testing..."
+      reset=true
+      size="big"
+      variant="secondary"
+  }}
+  {{r-async-button
+      action=(action 'save')
+      default="Aysnc Cancel Big"
+      pending="Testing..."
+      reset=true
+      size="big"
+      variant="cancel"
+  }}
+</div>
+
+<h3 class="fc-secondary mb2">r-link-button</h3>
+<div class="mb2">
+  {{r-link-button
+      label="Link Button"
+      href="http://hackertyper.net/"
+      target="_blank"
+  }}
+</div>
+
+<div class="mb4">
+  {{r-link-button
+      label="Link Button"
+      href="http://hackertyper.net/"
+      target="_blank"
+      size="big"
+  }}
+</div>
