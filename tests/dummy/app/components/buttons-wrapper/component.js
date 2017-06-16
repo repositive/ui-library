@@ -5,7 +5,6 @@ const { Component, RSVP } = Ember;
 
 export default Component.extend({
   layout,
-  isInvalid: false,
 
   actions: {
     save() {
