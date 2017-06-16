@@ -21,7 +21,6 @@ Add the line `@import 'ui-library';` to your `app.scss` file. This SCSS extends 
 
 ## Usage
 
-You'll find a `README` file in each of the component directories in `/addon`. Please refer to the README of the component you'd like to use for usage instructions.
 
 ### Buttons
 
@@ -81,7 +80,17 @@ clickHandler = (action 'cancel')
 disabled = (not validations.valid)
 ```
 
+Typical usage of `r-button` may look like:
+```
+{{r-button
+    clickHandler=(action "reset")
+    variant="secondary"
+    size="big"
+    disabled=isFormUnchanged
+    label="Reset"
+}}
 
+```
 
 #### r-async-button
 Async-buttons are similar to regular `r-button`s but can take a few extra options:
@@ -112,8 +121,7 @@ reset = true
 ```
 
 
-A typical `async-button` may look like:
-
+Typical usage of `r-async-button` may look like:
 
 ```
 {{r-async-button
@@ -128,6 +136,70 @@ A typical `async-button` may look like:
 ```
 
 #### r-link-button
+`r-link-button`s are extended from `r-button` and have 2 extra arguments:
+
+- `href` - The link to open. E.g.
+```
+href= "https://blog.repositive.io"
+```
+- `target` - Where the linked document will open. E.g.
+```
+target='_blank'
+```
+
+Typical usage of `r-link-button` may look like:
+
+```
+{{r-link-button
+    clickHandler=(action "trackExit")
+    href= model.url
+    label= "Access Data"
+    variant="primary"
+    size="big"
+    target="_blank"
+}}
+```
+
+### Pagination
+`r-pagination` takes the following parameters:
+
+- `totalPages` - The total number of response results / resultsPerPage. E.g.
+```
+totalPages=totalPages
+```
+
+- `currentPageNumber` - Number signifying which page the user is on. E.g.
+```
+currentPageNumber=currentPage
+```
+
+- `nextPage` - Action to be called when the 'Next' button is pressed. E.g.
+```
+nextPage=(action 'nextPage')
+```
+
+- `previousPage` - Action to be called when the 'Previous' button is pressed. E.g.
+```
+previousPage=(action 'previousPage')
+```
+
+- `goToPage` - Action to be called when a page number is pressed. E.g.
+```
+goToPage=(action 'goToPage')
+```
+
+
+Typical usage of `r-pagination` may look like:
+
+```
+{{r-pagination
+    totalPages=totalPages
+    currentPageNumber=page
+    nextPage=(action 'nextPage')
+    previousPage=(action 'previousPage')
+    goToPage=(action 'goToPage')
+}}
+```
 
 ## Contributing
 
