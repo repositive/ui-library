@@ -35,7 +35,7 @@ export default Mixin.create({
     // sets appropriate properties to true for classNameBindings
     const attributes = get(this, 'attributes');
     const defaults = get(this, 'defaults');
-    
+
     Object.keys(attributes).forEach(attribute => {
       const property = getProperty(
         attributes[attribute],

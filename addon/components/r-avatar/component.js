@@ -19,16 +19,12 @@ export default Component.extend({
     'x-large:icon-x-large'
   ],
 
-  attributes: {
-    size: ['small', 'medium', 'large', 'x-large']
-  },
-
-  defaults: {
-    size: 'medium'
-  },
-
   init() {
     this._super(...arguments);
+    this.attributes = {
+      size: ['small', 'medium', 'large', 'x-large']
+    };
+    this.defaults = { size: 'medium' };
 
     // sets appropriate properties to true for classNameBindings
     const attributes = get(this, 'attributes');
@@ -50,5 +46,5 @@ export default Component.extend({
     $(".circle").on("error", function() {
       $(this).attr('src', '../assets/images/avatar/dog.png');
     })
-  },
+  }
 });
