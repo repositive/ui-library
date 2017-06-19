@@ -307,6 +307,12 @@ Typical usage of the tab component:
 * `ember test`
 * `ember test --server`
 
+### Test Coverage
+
+* `npm test` Creates a folder `coverage` in the root of the project.
+* `{BROWSER} coverage/lcov-report/index.html` To show the report in your browser.
+* [Codecov](https://codecov.io/gh/repositive/ui-library/) is used to keep track of code coverage in this project.
+
 ### Building
 
 * `ember build`
