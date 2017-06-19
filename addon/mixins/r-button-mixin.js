@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { getAttributeValue } from 'ui-library/utils/get-attribute-value';
 
-const { Mixin, get, set } = Ember;
+const { Mixin, get, setProperties, getProperties } = Ember;
 
 export default Mixin.create({
   classNames: ['r-btn'],
@@ -31,18 +31,43 @@ export default Mixin.create({
 
   init() {
     this._super(...arguments);
-
+    this.allowedAttributes = {
+      variant: ['primary', 'secondary', 'cancel'],
+      size: ['small', 'big']
+    };
+    this.defaults = {
+      variant: 'secondary',
+      size: 'small'
+    };
     // sets appropriate properties to true for classNameBindings
-    const attributes = get(this, 'attributes');
+    const allowedAttributes = get(this, 'allowedAttributes');
     const defaults = get(this, 'defaults');
-    debugger;
-    Object.keys(attributes).forEach(attribute => {
+    const suppliedAttrs = get(this, 'attrs');
+
+    this._setupAttributes(allowedAttributes, defaults, suppliedAttrs);
+  },
+
+  _setupAttributes(allowedAttributes, defaults, suppliedAttrs) {
+    const attrObj = this._createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
+    setProperties(this, attrObj);
+  },
+
+  _createAttributesObject(allowedAttributes, defaults, suppliedAttrs) {
+    const dataObj = {};
+
+    //suppliedAttrs can inlude attrs such as 'label' which are not 'allowedAttributes'
+    const validSuppliedAttrKeys = Object.keys(suppliedAttrs)
+      .filter(attr => Object.keys(allowedAttributes).indexOf(attr) > -1);
+    const validSuppliedAttrs = getProperties(suppliedAttrs, validSuppliedAttrKeys);
+
+    Object.keys(allowedAttributes).map(attribute => {
       const property = getAttributeValue(
-        attributes[attribute],
+        allowedAttributes[attribute],
         defaults[attribute],
-        get(this, attribute)
+        get(validSuppliedAttrs, attribute)
       );
-      set(this, property, true);
+      dataObj[property] = true;
     });
+    return dataObj;
   }
 });
