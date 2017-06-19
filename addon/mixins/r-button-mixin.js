@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { getProperty } from 'ui-library/utils/set-options';
+import { getAttributeValue } from 'ui-library/utils/get-attribute-value';
 
 const { Mixin, get, set } = Ember;
 
@@ -35,15 +35,14 @@ export default Mixin.create({
     // sets appropriate properties to true for classNameBindings
     const attributes = get(this, 'attributes');
     const defaults = get(this, 'defaults');
-
+    debugger;
     Object.keys(attributes).forEach(attribute => {
-      debugger;
-      const property = getProperty(
+      const property = getAttributeValue(
         attributes[attribute],
         defaults[attribute],
         get(this, attribute)
-      )
-      set(this, property, true)
+      );
+      set(this, property, true);
     });
   }
 });

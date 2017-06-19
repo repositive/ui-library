@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import layout from 'ui-library/components/r-avatar/template';
-import { getProperty } from 'ui-library/utils/set-options';
+import { getAttributeValue } from 'ui-library/utils/get-attribute-value';
 
 const { Component, get, set, $ } = Ember;
 
@@ -31,13 +31,13 @@ export default Component.extend({
     const defaults = get(this, 'defaults');
 
     Object.keys(attributes).forEach(attribute => {
-      const property = getProperty(
+      const property = getAttributeValue(
         attributes[attribute],
         defaults[attribute],
         get(this, attribute)
-      )
+      );
 
-      set(this, property, true)
+      set(this, property, true);
     });
   },
 
