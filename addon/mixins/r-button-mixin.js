@@ -37,6 +37,7 @@ export default Mixin.create({
     const defaults = get(this, 'defaults');
 
     Object.keys(attributes).forEach(attribute => {
+      debugger;
       const property = getProperty(
         attributes[attribute],
         defaults[attribute],
