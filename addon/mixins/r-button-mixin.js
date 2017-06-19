@@ -19,16 +19,6 @@ export default Mixin.create({
     'small:r-btn-small'
   ],
 
-  attributes: {
-    variant: ['primary', 'secondary', 'cancel'],
-    size: ['small', 'big']
-  },
-
-  defaults: {
-    variant: 'secondary',
-    size: 'small'
-  },
-
   init() {
     this._super(...arguments);
     this.allowedAttributes = {
