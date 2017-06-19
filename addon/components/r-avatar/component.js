@@ -1,8 +1,8 @@
 import Ember from 'ember';
 import layout from 'ui-library/components/r-avatar/template';
-import { getAttributeValue } from 'ui-library/utils/get-attribute-value';
+import { createAttributesObject } from 'ui-library/utils/create-attributes-object';
 
-const { Component, get, set, $ } = Ember;
+const { Component, get, setProperties, $ } = Ember;
 
 export default Component.extend({
   layout,
@@ -21,24 +21,17 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.attributes = {
+    this.allowedAttributes = {
       size: ['small', 'medium', 'large', 'x-large']
     };
     this.defaults = { size: 'medium' };
 
-    // sets appropriate properties to true for classNameBindings
-    const attributes = get(this, 'attributes');
+    const allowedAttributes = get(this, 'allowedAttributes');
     const defaults = get(this, 'defaults');
+    const suppliedAttrs = get(this, 'attrs');
 
-    Object.keys(attributes).forEach(attribute => {
-      const property = getAttributeValue(
-        attributes[attribute],
-        defaults[attribute],
-        get(this, attribute)
-      );
-
-      set(this, property, true);
-    });
+    const attrObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
+    setProperties(this, attrObj);
   },
 
   didRender() {

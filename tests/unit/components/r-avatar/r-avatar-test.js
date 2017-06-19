@@ -32,7 +32,7 @@ describe('Unit | Component | r-avatar', function() {
     });
 
     it('should have correct attributes set', function () {
-      expect(get(component, 'attributes')).to.be.eql({
+      expect(get(component, 'allowedAttributes')).to.be.eql({
         size: ['small', 'medium', 'large', 'x-large']
       });
     });
