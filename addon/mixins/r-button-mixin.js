@@ -39,25 +39,29 @@ export default Mixin.create({
       variant: 'secondary',
       size: 'small'
     };
-    // sets appropriate properties to true for classNameBindings
+
     const allowedAttributes = get(this, 'allowedAttributes');
     const defaults = get(this, 'defaults');
     const suppliedAttrs = get(this, 'attrs');
 
-    this._setupAttributes(allowedAttributes, defaults, suppliedAttrs);
-  },
-
-  _setupAttributes(allowedAttributes, defaults, suppliedAttrs) {
     const attrObj = this._createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
     setProperties(this, attrObj);
   },
 
-  _createAttributesObject(allowedAttributes, defaults, suppliedAttrs) {
+  /**
+  * @desc creates an object used to safely set attributes
+  * @param {Object} allowedAttributes - valid attribute values
+  * @param {Object} defaults - fallback attributes if valid attrs not provided
+  * @param {Object} suppliedAttrs - the attributes passed to the component
+  * @returns {Object} Object of attribute keys with true value
+  */
+  _createAttributesObject(allowedAttributes, defaults, suppliedAttrs = {}) {
     const dataObj = {};
 
-    //suppliedAttrs can inlude attrs such as 'label' which are not 'allowedAttributes'
+    //Filter suppliedAttrs to just valid ones. E.g. 'label' is not valid
     const validSuppliedAttrKeys = Object.keys(suppliedAttrs)
       .filter(attr => Object.keys(allowedAttributes).indexOf(attr) > -1);
+
     const validSuppliedAttrs = getProperties(suppliedAttrs, validSuppliedAttrKeys);
 
     Object.keys(allowedAttributes).map(attribute => {
