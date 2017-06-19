@@ -39,7 +39,7 @@ describe('Unit | Mixin | r-button-mixin', function() {
     });
 
     it('should have correct attributes set', function () {
-      expect(get(subject, 'attributes')).to.be.eql({
+      expect(get(subject, 'allowedAttributes')).to.be.eql({
         variant: ['primary', 'secondary', 'cancel'],
         size: ['small', 'big']
       });
