@@ -13,7 +13,7 @@ const { getProperties, get } = Ember;
 export function createAttributesObject(allowedAttributes, defaults, suppliedAttrs = {}) {
   const dataObj = {};
 
-  //Filter suppliedAttrs to just valid ones. E.g. 'label' is not valid
+  //Filter suppliedAttrs to just valid ones.
   const validSuppliedAttrKeys = Object.keys(suppliedAttrs)
     .filter(attr => Object.keys(allowedAttributes).indexOf(attr) > -1);
 
