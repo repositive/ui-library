@@ -90,7 +90,11 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@repositive/liz-skin/-/liz-skin-1.1.0.tgz#7e22a7820df59d2e24e8fefdabca45ff6e40495e"
 
-abbrev@1, abbrev@1.0.x:
+abbrev@1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
+
+abbrev@1.0.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.0.9.tgz#91b4792588a7738c25f35dd6f63752a2f8776135"
 

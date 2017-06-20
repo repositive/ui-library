@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import { createAttributesObject } from 'ui-library/utils/create-attributes-object';
 
-const { Mixin, get, set } = Ember;
+const { Mixin, get, setProperties } = Ember;
 
 export default Mixin.create({
   classNames: ['r-btn'],
@@ -18,42 +19,22 @@ export default Mixin.create({
     'small:r-btn-small'
   ],
 
-  options: {
-    variant: ['primary', 'secondary', 'cancel'],
-    size: ['small', 'big']
-  },
-
-  defaults: {
-    variant: 'secondary',
-    size: 'small'
-  },
-
   init() {
     this._super(...arguments);
+    this.allowedAttributes = {
+      variant: ['primary', 'secondary', 'cancel'],
+      size: ['small', 'big']
+    };
+    this.defaults = {
+      variant: 'secondary',
+      size: 'small'
+    };
 
-    // set option flags used for className bindings
-    Object.keys(get(this, 'options')).forEach(key => this._setOptionFlag(key));
-  },
+    const allowedAttributes = get(this, 'allowedAttributes');
+    const defaults = get(this, 'defaults');
+    const suppliedAttrs = get(this, 'attrs');
 
-  /**
-   * @desc sets flag based of option value passed during component invocation
-   * @param {String} flagType
-   * @private
-   */
-  _setOptionFlag(flagType) {
-    const flagName = get(this, flagType);
-
-    set(this, (this._isValidFlagName(flagType, flagName) ? flagName : get(this, `defaults.${flagType}`)), true);
-  },
-
-  /**
-   * @desc checks if given flag name is valid
-   * @param {String} flagType
-   * @param {String} flagName
-   * @returns {Boolean}
-   * @private
-   */
-  _isValidFlagName(flagType, flagName) {
-    return get(this, `options.${flagType}`).indexOf(flagName) !== -1;
+    const attrObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
+    setProperties(this, attrObj);
   }
 });

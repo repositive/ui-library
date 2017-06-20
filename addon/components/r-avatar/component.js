@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import layout from 'ui-library/components/r-avatar/template';
+import { createAttributesObject } from 'ui-library/utils/create-attributes-object';
 
-const { Component, get, set, $ } = Ember;
+const { Component, get, setProperties, $ } = Ember;
 
 export default Component.extend({
   layout,
@@ -20,14 +21,17 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    this.options = {
+    this.allowedAttributes = {
       size: ['small', 'medium', 'large', 'x-large']
     };
     this.defaults = { size: 'medium' };
 
-    // TODO: this logic is also used for buttons, create a generalised logic helper.
-    // set option flags used for className bindings
-    Object.keys(get(this, 'options')).forEach(key => this._setOptionFlag(key));
+    const allowedAttributes = get(this, 'allowedAttributes');
+    const defaults = get(this, 'defaults');
+    const suppliedAttrs = get(this, 'attrs');
+
+    const attrObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
+    setProperties(this, attrObj);
   },
 
   didRender() {
@@ -35,27 +39,5 @@ export default Component.extend({
     $(".circle").on("error", function() {
       $(this).attr('src', '../assets/images/avatar/dog.png');
     })
-  },
-
-  /**
-   * @desc sets flag based of option value passed during component invocation
-   * @param {String} flagType
-   * @private
-   */
-  _setOptionFlag(flagType) {
-    const flagName = get(this, flagType);
-
-    set(this, (this._isValidFlagName(flagType, flagName) ? flagName : get(this, `defaults.${flagType}`)), true);
-  },
-
-  /**
-   * @desc checks if given flag name is valid
-   * @param {String} flagType
-   * @param {String} flagName
-   * @returns {Boolean}
-   * @private
-   */
-  _isValidFlagName(flagType, flagName) {
-    return get(this, `options.${flagType}`).indexOf(flagName) !== -1;
   }
 });
