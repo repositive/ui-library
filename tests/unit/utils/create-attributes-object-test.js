@@ -42,12 +42,13 @@ describe('Unit | Utils | createAttributesObject', function() {
     )).to.have.all.keys('primary', 'medium', 'red');
   });
 
-  it('should return defaults where suppliedAttrs are invalid', function() {
+  it('should return default values where supplied values are invalid', function() {
     const suppliedAttrs = {
       variant: 'tertiary',
       color: 'blue',
       size: 'gigantic'
     };
+
     expect(createAttributesObject(
       allowedAttributes,
       defaults,
@@ -62,7 +63,11 @@ describe('Unit | Utils | createAttributesObject', function() {
       veg: 'onion',
       cereal: "Cheerios"
     };
-    const dataObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
-    expect(dataObj).to.have.all.keys('red', 'secondary', 'medium');
+
+    expect(createAttributesObject(
+      allowedAttributes,
+      defaults,
+      suppliedAttrs
+    )).to.have.all.keys('red', 'secondary', 'medium');
   });
 });
