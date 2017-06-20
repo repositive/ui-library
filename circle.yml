@@ -5,10 +5,14 @@ machine:
 dependencies:
   pre:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+  override:
+    - yarn
 
 test:
   override:
-    - echo "skip"
+    - yarn test
+  post:
+    - yarn report-coverage
 
 deployment:
   npm:
