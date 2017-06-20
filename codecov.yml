@@ -1,2 +1,13 @@
 ignore:
   - "tests"
+coverage:
+  status:
+    project:
+      default:
+        enabled: true
+        target: auto
+        threshold: 5%
+    patch:
+      default:
+        enabled: false
+
