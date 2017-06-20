@@ -1,0 +1,10 @@
+<h3 class="fc-secondary mb2">r-pagination</h3>
+<div class="mb2">
+  {{r-pagination
+      totalPages=totalPages
+      currentPageNumber=currentPage
+      nextPage=(action 'nextPage')
+      previousPage=(action 'previousPage')
+      goToPage=(action 'goToPage')
+  }}
+</div>
