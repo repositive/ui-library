@@ -37,7 +37,7 @@ export default Component.extend({
   didRender() {
     this._super(...arguments);
     $(".circle").on("error", function() {
-      $(this).attr('src', '../assets/images/avatar/dog.png');
+      $(this).attr('src', '/assets/images/avatar/dog.png');
     })
   }
 });
