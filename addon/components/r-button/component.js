@@ -8,7 +8,7 @@ export default Component.extend(ButtonMixin, {
   layout,
   layoutName: 'components/r-button',
   tagName: 'button',
-  attributeBindings: ['disabled', 'variant'],
+  attributeBindings: ['disabled', 'variant', 'type'],
   type: 'button', // set default button type to avoid accidental fro submit on click
 
   click() {
