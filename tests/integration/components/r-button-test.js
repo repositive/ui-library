@@ -9,15 +9,6 @@ describe('Integration | Component | r button', function() {
   });
 
   it('renders with a label', function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-    // Template block usage:
-    // this.render(hbs`
-    //   {{#r-button}}
-    //     template content
-    //   {{/r-button}}
-    // `);
-
     this.render(hbs `{{r-button label="There is some text here"}}`);
     expect(this.$()).to.have.length(1);
     expect(this.$().text().trim()).to.equal('There is some text here');
