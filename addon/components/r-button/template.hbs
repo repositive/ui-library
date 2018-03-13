@@ -1,1 +1,5 @@
-{{label}}
+{{#if (has-block)}}
+  {{yield}}
+{{else}}
+  {{label}}
+{{/if}}
