@@ -220,6 +220,11 @@ Typical usage of `r-pagination` may look like:
   {{r-avatar src='https://cdn.catimages.com/massive-cat.jpg'}}
   ```
 
+- `fallbackSrc` - Specifies an alternate URL to use if `src` fails (e.g. returns 404).
+  ```
+  {{r-avatar src="https://example.com/404" fallbackSrc='https://cdn.catimages.com/massive-cat.jpg'}}
+  ```
+
 Typical usage of the `r-avatar` may look like:
 
 ```
