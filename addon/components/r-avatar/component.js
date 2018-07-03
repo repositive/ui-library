@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   tagName: 'img',
   classNames: ['circle'],
-  fallbackSrc: '/assets/images/avatar/dog.png',
+  fallbackSrc: '/avatars/default-pic.png',
 
   attributeBindings: ['src'],
 
