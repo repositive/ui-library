@@ -10,8 +10,8 @@ export default Component.extend({
   tagName: 'img',
   classNames: ['circle'],
   fallbackSrc: '/assets/images/avatar/default-pic.png',
-
-  attributeBindings: ['src'],
+  sizeOverride: null, // Numeric value for avatar width in px
+  attributeBindings: ['src', 'style'],
 
   classNameBindings: [
     // sizes
@@ -31,9 +31,11 @@ export default Component.extend({
     const allowedAttributes = get(this, 'allowedAttributes');
     const defaults = get(this, 'defaults');
     const suppliedAttrs = get(this, 'attrs');
+    const sizeOverride = get(this, 'sizeOverride');
 
     const attrObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
-    setProperties(this, attrObj);
+    const attrsToSet = sizeOverride ? Object.assign({style: `width: ${sizeOverride}px;`}, attrObj) : attrObj;
+    setProperties(this, attrsToSet);
   },
 
   didRender() {
