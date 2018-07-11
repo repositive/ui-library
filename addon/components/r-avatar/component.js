@@ -8,7 +8,7 @@ export default Component.extend({
   layout,
   tagName: 'img',
   classNames: ['circle'],
-  fallbackSrc: '/assets/images/avatar/dog.png',
+  fallbackSrc: '/assets/images/avatar/default-pic.png',
 
   attributeBindings: ['src'],
 
@@ -38,6 +38,11 @@ export default Component.extend({
   didRender() {
     this._super(...arguments);
     const that = this;
+
+    if (!get(that, 'src')) {
+      $(this).attr('src', get(that, 'fallbackSrc'));
+    }
+
     $(".circle").on("error", function() {
       $(this).attr('src', get(that, 'fallbackSrc'));
     })
