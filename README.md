@@ -2,6 +2,11 @@
 
 A set of ember components to allow frontend applications to be composed quickly and consistently. Developed by [Repositive.io](https://repositive.io).
 
+## Publishing a new version
+
+* Make your changes and commit them
+* Run `npm version <new versino>` to bump the version number in `package.json` and create a new Git tag. This will be published automatically by CI.
+
 ## Prerequisites
 
 This library requires the Repositive CSS library,  [Liz-Skin](https://github.com/repositive/liz-skin). Please ensure you have this setup before continuing.
