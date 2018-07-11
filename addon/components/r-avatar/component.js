@@ -38,6 +38,11 @@ export default Component.extend({
   didRender() {
     this._super(...arguments);
     const that = this;
+
+    if (!get(that, 'src')) {
+      $(this).attr('src', get(that, 'fallbackSrc'));
+    }
+
     $(".circle").on("error", function() {
       $(this).attr('src', get(that, 'fallbackSrc'));
     })
