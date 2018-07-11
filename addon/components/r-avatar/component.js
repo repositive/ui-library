@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { set } from '@ember/object';
 import layout from 'ui-library/components/r-avatar/template';
 import { createAttributesObject } from 'ui-library/utils/create-attributes-object';
 
@@ -39,8 +40,8 @@ export default Component.extend({
     this._super(...arguments);
     const that = this;
 
-    if (!get(that, 'src')) {
-      $(this).attr('src', get(that, 'fallbackSrc'));
+    if (!get(this, 'src')) {
+      set(this, 'src', get(this, 'fallbackSrc'));
     }
 
     $(".circle").on("error", function() {
