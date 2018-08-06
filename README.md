@@ -5,7 +5,8 @@ A set of ember components to allow frontend applications to be composed quickly 
 ## Publishing a new version
 
 * Make your changes and commit them
-* Run `npm version <new versino>` to bump the version number in `package.json` and create a new Git tag. This will be published automatically by CI.
+* Run `npm version <major | minor | patch>` to bump the version number in `package.json` and create a new Git tag. This will be published automatically by CI.
+* Push `git push` and push tags `git push --tags`.
 
 ## Prerequisites
 
