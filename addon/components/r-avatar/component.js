@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import { set } from '@ember/object';
 import layout from 'ui-library/components/r-avatar/template';
+import { htmlSafe } from '@ember/string';
 import { createAttributesObject } from 'ui-library/utils/create-attributes-object';
 
 const { Component, get, setProperties, $ } = Ember;
@@ -34,7 +35,7 @@ export default Component.extend({
     const sizeOverride = get(this, 'sizeOverride');
 
     const attrObj = createAttributesObject(allowedAttributes, defaults, suppliedAttrs);
-    const attrsToSet = sizeOverride ? Object.assign({style: `width: ${sizeOverride}px;`}, attrObj) : attrObj;
+    const attrsToSet = sizeOverride ? Object.assign({style: htmlSafe(`width: ${sizeOverride}px;`)}, attrObj) : attrObj;
     setProperties(this, attrsToSet);
   },
 
